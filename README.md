@@ -1,0 +1,11 @@
+# Staring into the Sun: Sequence Modeling on Solar Flares
+
+### Executive Summary
+
+Solar flares are explosions of electromagnetic radiation that happen due entangled electromagnetic fields in our sun reaching a breaking point. Although they are fairly common space weather phenomena, high powered solar flares known as Coronal Mass Ejections (or Solar Super Storms) are capable of crippling civilization by damaging our technological systems.
+
+That said, improving space weather predictions is key to managing space weather. Current work uses LSTM to predict solar flares and their classes. We experiment in using a language modeling technique (embedding–weight tying) for time series modeling. 
+
+In general our experiments show results in the range of 80%-91% accuracy. While this is better than the raw PCC values, this does not beat the heuristic PCC threshold. It is also observed that over the course of the epochs, validation loss is increasing, while validation recall is decreasing. The behaviour of validation loss (overfitting) is in part due to the imbalance in the dataset where the non-solar-flare class is dominating. Possible future experiments would be to (1) change the loss function; and (2) to add dropout layers to increase generalization. On that note, it can be concluded, that the models are not predicting very well. Still, over the course of the different experiments, adding embeddings (weight tying) has introduced some improvement to the baseline numbers. The hypothesis could serve for further experiment with improved methodology.
+
+It is recommended to experiment with adding dropout layers, batch normalization, and other regularization techniques to address the overfitting problem. Also, other implementations of embedding (i.e. TrellisNet) is intended to be explored. Another recommendation is to reframe the problem in terms of actually predicting CMEs rather than just solar flares. However, additional data would be needed for the flare classification. Speaking of data, future work should remove the sampling to maximize the available data.
